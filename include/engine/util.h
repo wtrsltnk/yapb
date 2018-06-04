@@ -29,7 +29,7 @@ extern DLL_GLOBAL const Vector g_vZero;
 
 // Use this instead of ALLOC_STRING on constant strings
 #define STRING(offset)       (const char *)(g_pGlobals->pStringBase + (int)offset)
-#define MAKE_STRING(str)   ((int)str - (int)STRING(0))
+#define MAKE_STRING(str)   (int(str) - int(STRING(0)))
 #define ENGINE_STR(str)    (const_cast <char *> (STRING (ALLOC_STRING (str))))
 
 static inline edict_t *FIND_ENTITY_BY_CLASSNAME (edict_t *entStart, const char *pszName)

@@ -976,9 +976,9 @@ int GetWeaponReturn (bool needString, const char *weaponAlias, int weaponIndex)
       for (int i = 0; i < ARRAYSIZE_HLSDK (weaponTab); i++)
       {
          if (weaponTab[i].weaponIndex == weaponIndex) // is weapon id found?
-            return MAKE_STRING (weaponTab[i].alias);
+            return ALLOC_STRING (weaponTab[i].alias);
       }
-      return MAKE_STRING ("(none)"); // return none
+      return ALLOC_STRING ("(none)"); // return none
    }
 
    // else search weapon by name and return weapon id

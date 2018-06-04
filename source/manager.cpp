@@ -59,7 +59,7 @@ void BotManager::CreateKillerEntity (void)
 {
    // this function creates single trigger_hurt for using in Bot::Kill, to reduce lags, when killing all the bots
 
-   m_killerEntity = g_engfuncs.pfnCreateNamedEntity (MAKE_STRING ("trigger_hurt"));
+   m_killerEntity = g_engfuncs.pfnCreateNamedEntity (ALLOC_STRING ("trigger_hurt"));
 
    m_killerEntity->v.dmg = 9999.0f;
    m_killerEntity->v.dmg_take = 1.0f;
@@ -84,7 +84,7 @@ void BotManager::TouchWithKillerEntity (Bot *bot)
       return;
    }
 
-   m_killerEntity->v.classname = MAKE_STRING (g_weaponDefs[bot->m_currentWeapon].className);
+   m_killerEntity->v.classname = ALLOC_STRING (g_weaponDefs[bot->m_currentWeapon].className);
    m_killerEntity->v.dmg_inflictor = bot->GetEntity ();
 
    KeyValueData kv;
